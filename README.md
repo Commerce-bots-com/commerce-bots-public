@@ -56,9 +56,13 @@ await client.close();
 
 - [`examples/shopify-storefront.ts`](examples/shopify-storefront.ts) — search + get product details
 
-## Premium / managed
+## Managed (Pro) — we run it in production for you
 
-Running this yourself is free. If you want us to host, harden (idempotency, retries, monitoring), and run these integrations for you — see **[Pricing →](https://commerce-bots.com/premium)** or email [hello@commerce-bots.com](mailto:hello@commerce-bots.com).
+Open source is free forever. When you're ready for production, our **managed reliability gateway** sits between your AI agent and the integration and adds **idempotent writes (no duplicate orders or charges), automatic retries, and full request visibility** — point your agent's MCP client at the gateway instead of the raw upstream and it just works, safely. See **[Pricing →](https://commerce-bots.com/premium)** or email [hello@commerce-bots.com](mailto:hello@commerce-bots.com).
+
+## Contributing
+
+We only publish integrations that pass our test harness against their live endpoint. To propose one (or report that a tested pair composes), see **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 
 ## License
 
