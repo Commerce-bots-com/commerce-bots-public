@@ -15,6 +15,38 @@ More integrations are in progress and will be added here once they pass the harn
 
 → Directory & compatibility matrix: **[commerce-bots.com](https://commerce-bots.com)**
 
+## Verified compatibility
+
+AI agents rarely use one server alone — they load a storefront *and* a payment
+processor *and* a CRM into the same context. We measure how those servers actually
+compose. For each pair the harness connects to **both** live servers, compares
+their real tool manifests for conflicts (tool-name collisions, schema mismatches,
+shared auth/host, combined token budget), and — for cross-category pairs — runs a
+**dynamic routing probe**: it loads both manifests (namespaced per server) into one
+agent and checks that a representative cross-server task (e.g. *search the catalog →
+take payment*) routes each step to the intended server.
+
+As of 2026-06-29 the matrix covers **19 measured pairs** across the directory's live
+platforms (Shopify, BigCommerce, WooCommerce, Stripe, PayPal, Square, HubSpot).
+**6 are `confirmed`** — both servers connected live *and* the agent routed the task
+to the right server each step:
+
+| Pair | Evidence |
+|---|---|
+| Shopify Storefront × Stripe | storefront + payment flow routed correctly |
+| BigCommerce Storefront × Stripe | search → payment routed correctly |
+| BigCommerce Storefront × PayPal | search → payment routed correctly |
+| BigCommerce Storefront × HubSpot | search → CRM lookup routed correctly |
+| HubSpot × Stripe | payment → CRM routed correctly |
+| Square × Stripe | both payment servers addressed distinctly |
+
+The remaining pairs are `probable`: manifests were measured live but routing wasn't
+cleanly exercised — typically because a server uses a meta-tool/dispatcher pattern
+(PayPal, Square, HubSpot) whose tool *names* don't advertise a specific operation,
+so the agent doesn't pick a tool by name+description alone. Every record states
+exactly which step routed where. Full matrix + per-pair detail:
+**[commerce-bots.com/compatible](https://commerce-bots.com/compatible)**.
+
 ## Install
 
 ```bash
