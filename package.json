@@ -1,7 +1,7 @@
 {
   "name": "commerce-bots",
   "version": "0.1.0",
-  "description": "Open-source MCP integrations for AI commerce agents — Shopify, Stripe, Auctane over Google UCP",
+  "description": "Open-source MCP integrations for AI commerce agents — Shopify Storefront and Stripe, verified against their live endpoints",
   "type": "module",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
@@ -14,7 +14,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
-  "keywords": ["mcp", "shopify", "stripe", "auctane", "ucp", "ai-agents", "commerce"],
+  "keywords": ["mcp", "shopify", "stripe", "ai-agents", "commerce"],
   "license": "MIT",
   "peerDependencies": {
     "@modelcontextprotocol/sdk": ">=1.0.0"
